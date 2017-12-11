@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.blue-menu{
+    padding: 10px;
+    background-color: #4cb1ca;
+    font: 16px arial, sans-serif;
+    color: white;
+    height: 30px;
+    width: 100%;
+}
+li a{
+    display: block;
+    width: 60px;
+    float: left;
+    text-decoration: none;
+}
+.list-header{
+    height: 10px;
+    width: auto;
+    float: left;
+    margin: 5px 10px;
+}
+col-sm-6{
+    color: white;
+}

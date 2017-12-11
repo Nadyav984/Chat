@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js">
+    </script>
+    <style>
+        .message,
+        .input-message {
+            margin: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+            display: block;
+            background-color: rgb(223, 213, 213);
+
+            line-height: 5 px;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        .input-message {}
+
+        .template {
+            display: none;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="message">
+        <div class="template">
+            <p>
+                <b>
+                    <span class="name"></span>
+                </b>
+            </p>
+            <p class="message-text">
+            </p>
+            <hr>
+
+        </div>
+
+    </div>
+    <div class="input-message">
+            <p>
+                <b>Name</b>
+                <input class="input-name" type="text">
+            </p>
+            <p>
+                Text
+                <input class="input-text" type="text">
+            </p>
+            <button id="btn">SEND</button>
+        </div>
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        function newMSG(iname, itext) {
+            let newMessage = $(".template").clone()
+            newMessage.attr('id', '')
+            newMessage.removeClass('template')
+            newMessage.find('.name').text(iname)
+            newMessage.find('.message-text').text(itext)
+            $('.message').append(newMessage);
+        }
+        let messages = [
+            {
+                author: 'Name1',
+                text: 'Hi'
+            }, {
+                author: 'Name2',
+                text: 'Hello'
+            }, {
+                author: 'Name1',
+                text: 'Do you remember about chat that I told you about?'
+            }, {
+                author: 'Name1',
+                text: 'Yes, I will try to create it.'
+            },
+        ];
+        for (let i = 0; i < messages.length; i++) {
+            newMSG(messages[i].author, messages[i].text)
+        }
+        $("#btn").click(function () {
+            let iname = $('.input-name').val();
+            let itext = $('.input-text').val();
+            newMSG(iname, itext)
+        })
+
+    })
+
+
+</script>
+
+
+</html>
